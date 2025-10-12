@@ -5,6 +5,56 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Hide scrollbar for horizontal scroll sections (mobile) */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Smooth momentum scrolling on iOS */
+.overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Enhance snap scrolling */
+.snap-x {
+    scroll-padding: 1rem;
+}
+
+.snap-center {
+    scroll-snap-align: center;
+}
+
+.snap-start {
+    scroll-snap-align: start;
+}
+
+/* Mobile-first enhancements */
+@media (max-width: 768px) {
+    /* Better touch targets */
+    button, a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Improved readability */
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    /* Larger tap areas for cards */
+    .snap-center {
+        padding: 0.5rem;
+    }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
@@ -118,6 +168,22 @@ button:active, .button:active {
 }
 
 @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide up animation for notifications */
+.animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -422,6 +488,97 @@ select:focus {
         width: 100%;
         text-align: center;
     }
+    
+    /* Better hero image on mobile */
+    section .relative img {
+        height: 350px !important;
+        object-fit: cover;
+    }
+    
+    /* Improve card shadows on mobile */
+    .shadow-lg {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Better text sizing for mobile */
+    h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    h2 {
+        font-size: 2rem !important;
+    }
+    
+    /* Add subtle gradient to cards for visual appeal */
+    .snap-center:nth-child(odd) {
+        background: linear-gradient(135deg, #ffffff 0%, #f6f7f4 100%);
+    }
+}
+
+/* Smooth horizontal scroll indicator with fade effect */
+@media (max-width: 768px) {
+    /* Services section - remove any background overlays */
+    #services .overflow-x-auto {
+        position: relative;
+        background: transparent;
+    }
+    
+    /* Pricing section - remove any background overlays */
+    #pricing .overflow-x-auto {
+        position: relative;
+        background: transparent;
+    }
+    
+    /* Remove the fade gradients completely for cleaner look */
+}
+
+/* Hero Title Styling */
+.hero-title-gradient {
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Enhanced gradient text effects */
+.bg-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Subtle glow effect for hero text */
+.font-display h1 span {
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+/* Enhanced font display */
+.font-display {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'liga', 'kern';
+    font-optical-sizing: auto;
+}
+
+/* Enhanced card animations for mobile */
+@media (max-width: 768px) {
+    .snap-center, .snap-start {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .snap-center:active, .snap-start:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Add scroll snap padding for better UX */
+.snap-x {
+    scroll-padding-left: 1rem;
+    scroll-padding-right: 1rem;
 }
 
 /* Accessibility improvements */
