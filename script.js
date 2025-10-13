@@ -1,28 +1,19 @@
-// Pricing data (single currency USD)
+// Pricing data (monthly pricing in USD)
 const pricingData = {
-    yoga: {
-        oneOnOne: {
-            price: '149',
-            name: '1-on-1 Yoga Session',
-            description: 'Personalized yoga session'
-        },
-        couples: {
-            price: '199',
-            name: 'Couples Yoga Classes',
-            description: '4 sessions per week'
-        }
+    basic: {
+        price: '89',
+        name: '1-on-1 Classes',
+        description: '2 sessions per week (8 total per month)'
     },
-    rehab: {
-        oneOnOne: {
-            price: '149',
-            name: '1-on-1 Rehab Session',
-            description: 'Therapeutic rehab session'
-        },
-        couples: {
-            price: '199',
-            name: 'Couples Rehab Classes',
-            description: '4 sessions per week'
-        }
+    popular: {
+        price: '149',
+        name: '1-on-1 Classes',
+        description: '4 sessions per week (16 total per month)'
+    },
+    couples: {
+        price: '199',
+        name: 'Couples Classes',
+        description: '4 sessions per week (16 total per month)'
     }
 };
 
