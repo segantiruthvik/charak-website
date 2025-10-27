@@ -115,12 +115,32 @@ function setupPricingNavigation() {
     }
 }
 
-// Add subtle parallax effect on scroll
+// Show/hide floating buttons on scroll
 let ticking = false;
 window.addEventListener('scroll', function() {
     if (!ticking) {
         window.requestAnimationFrame(function() {
-            // Add any scroll-based effects here
+            const scrollY = window.scrollY;
+            const freeSessionBtn = document.getElementById('freeSessionBtn');
+            const socialButtons = document.querySelector('.fixed.bottom-4.right-4');
+            
+            // Show buttons after scrolling down 200px
+            if (scrollY > 200) {
+                if (freeSessionBtn) {
+                    freeSessionBtn.style.opacity = '1';
+                }
+                if (socialButtons) {
+                    socialButtons.style.opacity = '1';
+                }
+            } else {
+                if (freeSessionBtn) {
+                    freeSessionBtn.style.opacity = '0';
+                }
+                if (socialButtons) {
+                    socialButtons.style.opacity = '0';
+                }
+            }
+            
             ticking = false;
         });
         ticking = true;
